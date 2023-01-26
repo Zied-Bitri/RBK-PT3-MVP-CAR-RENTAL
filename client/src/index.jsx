@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
-import List from './components/List.jsx'
+import Car from './components/Car.jsx'
 
 const App = () => {
-  const [items, setItems] = useState([])
+  const [cars, setCars] = useState([])
   useEffect(() => {
     $.ajax({
-      url: '/api/items',
+      url: '/api/cars',
       success: (data) => {
         console.log(data)
-        setItems(data)
+        setCars(data)
       },
       error: (err) => {
         console.log('err', err)
@@ -20,8 +20,8 @@ const App = () => {
 
   return (
     <div>
-      <h1>Item List</h1>
-      <List items={items} />
+      <h1>Car Rental</h1>
+      <Car cars={cars} />
     </div>
   )
 }
